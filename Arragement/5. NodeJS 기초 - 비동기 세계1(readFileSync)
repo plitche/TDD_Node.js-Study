@@ -1,0 +1,3 @@
+	5. NodeJS 기초 - 비동기 세계1(readFileSync)
+		* 노드는 기본적으로 비동기로 동작함
+			- readFile() vs readFileSync();
