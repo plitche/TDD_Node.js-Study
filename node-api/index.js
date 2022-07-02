@@ -4,9 +4,21 @@ const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) => { // 화살표 함수 es6
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World!\n'); // 클라이언트에게 보내줌
+
+  if (req.url === '/') {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello World!\n'); // 클라이언트에게 보내줌
+  } else if(req.url === '/users') {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('User list');
+  } else {
+    res.statusCode = 404;
+    res.end('Not Found');
+  }
+
+  
 });
 
 server.listen(port, hostname, () => { // 서버를 요청 대기상태로 만들어주는 함수
