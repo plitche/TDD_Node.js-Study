@@ -1,0 +1,16 @@
+	12. 익스프레스(ExpressJS) 기초 - 미들웨어 만들기
+		- 미들웨어는 함수들의 연속이다.
+		- 로깅 미들웨어를 만들어 보자
+		- 써드파티 미들웨어를 사용해 보자
+		- 일반 미들웨어 vs 에러 미들웨어
+		- 404, 500 에러 미들웨어를 만들어 보자
+		
+		
+		function logger(req, res, next) {
+			console.log('i am logger');
+		}
+		app.use(logger);
+		
+		next : 미들웨어는 자기 할일을 다한 다음에 next 함수를 호출해야 한다.
+		
+		* npm install express
