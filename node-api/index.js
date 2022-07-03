@@ -2,19 +2,19 @@ const express = require('express');
 const morgan = require('morgan');
 const app = express();
 
-function logger(req, res, next) {
-  console.log('i am logger');
-  next(); // next함수를 호출해야만이 다음 로직을 실행한다.
+function commonMW(req, res, next) {
+  console.log('commonMW');
+  next(new Error('error ouccered'));
 }
 
-function logger2(req, res, next) {
-  console.log('i am logger2');
+function errorMW(err, req, res, next) {
+  console.log(err.message);
+  // 에러를 처리하거나
   next();
 }
 
-app.use(logger);
-app.use(logger2);
-app.use(morgan('dev'));
+app.use(commonMW);
+app.use(errorMW);
 
 app.listen(3000, function() {
   console.log('Server is running');
