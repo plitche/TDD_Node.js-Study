@@ -1,0 +1,10 @@
+	16. 익스프레스(ExpressJS) 기초 - 요청객체와 응답객체
+		* 요청 객체
+			- 클라이언트 요청 정보를 담은 객체를 요청(Request) 객체라고 한다.
+			- http 모듈의 request 객체를 래핑한 것이다.
+			- req.params(), requ.query(), req.body() 메소드를 주로 사용한다.
+			
+		* 응답 객체
+			- 클라이언트 응답 정보를 담은 객체를 응답(Response) 객체라고 한다.
+			- http 모듈의 response 객체를 래핑한 것이다.
+			- res.send(), res.status(), res.json() 메소드를 주로 사용한다.
