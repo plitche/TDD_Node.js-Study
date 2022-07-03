@@ -1,0 +1,4 @@
+	18. npm에 대해 좀 더 알아보기 - npm1
+		- npm init > package.json 폴더 생성
+		- npm install express --save
+		- npm install morgan --save
