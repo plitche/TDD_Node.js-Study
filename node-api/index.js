@@ -1,21 +1,12 @@
-const express = require('express');
-const morgan = require('morgan');
-const app = express();
+const express = require('express')
+const app = express()
+const port = 3000
 
-function commonMW(req, res, next) {
-  console.log('commonMW');
-  next(new Error('error ouccered'));
-}
+// 라우팅 설정
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-function errorMW(err, req, res, next) {
-  console.log(err.message);
-  // 에러를 처리하거나
-  next();
-}
-
-app.use(commonMW);
-app.use(errorMW);
-
-app.listen(3000, function() {
-  console.log('Server is running');
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 })
