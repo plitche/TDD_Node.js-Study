@@ -1,0 +1,9 @@
+	28. 테스트 주도 개발(TDD) - 슈드(should)
+		- 노드 assert 말고 서드파티 라이브러리를 사용하라
+		- 슈드(should)는 검증(assertion) 라이브러리다
+		- 가독성 높은 테스트 코드를 만들 수 있다.
+		
+		souldjs.github.io
+		github.com/tj/should.js
+		
+		* npm install should --save-dev
