@@ -19,3 +19,26 @@ app.use(errorMW);
 ```
 
 - errorMW의 err에 파라미터가 전달되는 원리??
+
+---
+
+30. 테스트 주도 개발(TDD) - 슈퍼테스트(superTest)2
+
+```js
+const app = require('./index.js');
+const request = require('supertest');
+
+describe('GET /users는', () => {
+    it('...', (done) => { 
+        request(app)
+            .get('/users')
+            .end((err, res) => {
+                console.log(res.body)
+                done(); // 비동기 처리를 위한 함수
+            })
+    })
+})
+```
+
+- 비동기 처리??
+
