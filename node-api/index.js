@@ -18,3 +18,5 @@ app.get('/users', (req, res) => { // 익스프레스 어플리케이션의 메�
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+module.exports = app;
