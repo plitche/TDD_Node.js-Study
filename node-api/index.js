@@ -18,7 +18,13 @@ app.get('/users', (req, res) => { // 익스프레스 어플리케이션의 메�
     return res.status(400)
   }
   res.send(users.slice(0, limit));
-})
+});
+
+app.get('/user/:id', function(req, res) {
+  const id = parseInt(req.params.id, 10);
+  const user = users.filter((user) => user.id === id)[0];
+  res.json(user);
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
