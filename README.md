@@ -42,3 +42,10 @@ describe('GET /users는', () => {
 
 - 비동기 처리??
 
+
+33. TDD로 하는 API 서버 개발 - 사용자 목록 조회 API 테스트 코드 만들기 2
+
+- req.query.limit = req.query.limit || 10;
+  
+ 
+
