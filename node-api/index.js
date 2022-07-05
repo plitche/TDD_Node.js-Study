@@ -12,7 +12,12 @@ app.use(morgan('dev'));
 
 // 라우팅 설정
 app.get('/users', (req, res) => { // 익스프레스 어플리케이션의 메소드(HTTP 메서드)
-  res.send(users);
+  req.query.limit = req.query.limit || 10;
+  const limit = parseInt(req.query.limit, 10); // "2" (정수, 진수)
+  if (Number.isNaN(limit)) {
+    return res.status(400)
+  }
+  res.send(users.slice(0, limit));
 })
 
 app.listen(port, () => {

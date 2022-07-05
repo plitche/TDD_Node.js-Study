@@ -1,0 +1,2 @@
+	33. TDD로 하는 API 서버 개발 - 사용자 목록 조회 API 테스트 코드 만들기 2
+		- application 코드에서 limit 에 접근하려면 req에 접근하면 쉽다.
