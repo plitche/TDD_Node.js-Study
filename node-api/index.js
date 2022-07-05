@@ -22,7 +22,10 @@ app.get('/users', (req, res) => { // 익스프레스 어플리케이션의 메�
 
 app.get('/user/:id', function(req, res) {
   const id = parseInt(req.params.id, 10);
+  if(id.isNaN) return res.status(400).end();
+
   const user = users.filter((user) => user.id === id)[0];
+  if (!user) return res.status(400).end();
   res.json(user);
 });
 
