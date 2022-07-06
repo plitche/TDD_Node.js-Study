@@ -47,5 +47,9 @@ describe('GET /users는', () => {
 
 - req.query.limit = req.query.limit || 10;
   
- 
-
+  
+38. TDD로 하는 API 서버 개발 - 사용자 추가 API 성공시
+```js
+.send({name: name})
+.send({name}) // es6문법
+```
