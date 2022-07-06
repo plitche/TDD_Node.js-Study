@@ -76,3 +76,36 @@ describe('GET /users/1', () => {
         })
     })
 })
+
+describe('POST /users', () => {
+    describe('성공시', () => {
+        let body,
+            name = 'daniel'
+        // test case가 동작하기전에 미리 실행되는 함수
+        before(done => {
+            request(app)
+            .post('/users')
+            //.send({name: name})
+            .send({name}) // es6문법
+            .expect(201)
+            .end((err, res) => {
+                body = res.body;
+                done();
+            });
+        });
+
+        it('생성된 유저 객체를 반환한다.', () => { // 비동기 테스트가 아니기 때문에 done을 없앤다.
+            request(app)
+            .post('/users')
+            .send({name: name})
+            .expect(201)
+            .end(done);
+        });
+        it('생성된 유저 객체를 반환한다.', () => {
+            body.should.have.property('id');
+        });
+        it('입력한 name을 반환한다.', done => {
+            body.should.have.property('name', name);
+        });
+    })
+})
