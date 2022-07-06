@@ -1,0 +1,3 @@
+	39. TDD로 하는 API 서버 개발 - bodyParser 모듈
+		// express에서는 body를 지원하지 않고 있기때문에 추가적인 모듈이 필요
+		npm i body-parser --save
