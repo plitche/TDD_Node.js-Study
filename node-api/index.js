@@ -29,6 +29,13 @@ app.get('/user/:id', function(req, res) {
   res.json(user);
 });
 
+app.delete('/usres/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  users = users.filter(user => user.id !== id);
+  // id가 삭제할 id와 같이 않은 아이들만 filter해서 새로운 배열을 기존 배열과 바꾼다.
+  res.status(204).end();
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
