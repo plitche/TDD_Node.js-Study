@@ -31,7 +31,7 @@ describe('GET /users는', () => {
     })
 })
 
-describe('GET /user/1는', () => {
+describe('GET /user/:id는', () => {
     describe('성공시', () => {
         it('id가 1인 유저 객체를 반환한다.', (done) => {
             request(app)
@@ -58,7 +58,7 @@ describe('GET /user/1는', () => {
     })
 })
 
-describe('DELETE /users/1', () => {
+describe('DELETE /users/:id는', () => {
     describe('성공시', () => {
         it('204를 응답한다.', (done) => {
             request(app)
@@ -123,5 +123,21 @@ describe('POST /users', () => {
             .expect(409)
             .end(done)
         });
+    })
+})
+
+describe('PUT /users/:id는', () => {
+    describe('성공시', () => {
+        it('변경된 name을 응답한다.', (done) => {
+            const name = 'chally';
+
+            request(app)
+            .put('/users/3')
+            .send({name: name})
+            .end((err, res) => {
+                res.body.should.have.property('name', name);
+                done();
+            })
+        })
     })
 })
