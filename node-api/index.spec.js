@@ -58,7 +58,7 @@ describe('GET /user/1는', () => {
     })
 })
 
-describe('GET /users/1', () => {
+describe('DELETE /users/1', () => {
     describe('성공시', () => {
         it('204를 응답한다.', (done) => {
             request(app)
@@ -106,6 +106,22 @@ describe('POST /users', () => {
         });
         it('입력한 name을 반환한다.', done => {
             body.should.have.property('name', name);
+        });
+    });
+    describe('실패시', () => {
+        it('name 파라미터 누락시 400을 반환한다.', (done) => {
+            request(app)
+            .post('/users')
+            .send({})
+            .expect(400)
+            .end(done);
+        });
+        it('name이 중복일 경우 409를 반환한다.', done => {
+            request(app)
+            .post('/users')
+            .send({name: 'daniel'})
+            .expect(409)
+            .end(done)
         });
     })
 })
