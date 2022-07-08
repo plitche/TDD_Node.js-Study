@@ -6,7 +6,10 @@ const sequelize = new Sequelize({  //db와 연동
 })
                     // 만들 테이블 명, 테이블의 속성
 const User = sequelize.define('User', {
-    name: Sequelize.STRING // varchar 255
+    name: {
+        type: Sequelize.STRING, // varchar 255
+        unique: true
+    }
 });
 
 module.exports = {Sequelize, sequelize, User};
