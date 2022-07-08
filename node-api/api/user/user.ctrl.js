@@ -1,9 +1,5 @@
 // api 로직
-var users = [
-    {id: 1, name: 'aplice'},
-    {id: 2, name: 'bek'},
-    {id: 3, name: 'chris'}
-    ];
+const models = require('../../models');
 
 const index = function (req, res) { // 익스프레스 어플리케이션의 메소드(HTTP 메서드)
     req.query.limit = req.query.limit || 10;
@@ -11,6 +7,12 @@ const index = function (req, res) { // 익스프레스 어플리케이션의 메
     if (Number.isNaN(limit)) {
       return res.status(400)
     }
+
+    models.User.findAll({}) // 파라미터로 where 조건을 넘길 수도 있다.
+      .then(users => {
+        res.json(users);
+      })
+
     res.send(users.slice(0, limit));
  };
 
