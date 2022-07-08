@@ -22,9 +22,12 @@ const show = function(req, res) {
     const id = parseInt(req.params.id, 10);
     if(id.isNaN) return res.status(400).end();
   
-    const user = users.filter((user) => user.id === id)[0];
-    if (!user) return res.status(400).end();
-    res.json(user);
+    models.User.findOne({
+      where: {id} // key와 value가 같으면 하나만 적어도 된다.
+    }).then(user => {
+      if (!user) return res.status(400).end();
+      res.json(user);
+    })
   };
 
 const destroy = function(req, res) {
