@@ -1,0 +1,8 @@
+	50. 데이터베이스 - 모델 정의
+		- 데이터베이스 테이블을 ORM을 추상화한것을 모델이라고 한다.
+		- 우리가 사용할 유저 모델을 만들어 보자.
+			> sequelize.define(): 모델 정의
+			> sequelize.sync(): 데이터베이스 연동
+			
+		- npm install sequelize : ORM
+		- npm i sequelize sqlist3 --save
