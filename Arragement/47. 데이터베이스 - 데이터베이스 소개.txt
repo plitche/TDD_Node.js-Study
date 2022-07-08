@@ -1,0 +1,7 @@
+	47. 데이터베이스 - 데이터베이스 소개
+		* SQL
+			- MySQL, PostgreSQL, Aurora, Sqlite(파일 형태의 db)
+		* NoSQL (document 형식)
+			- MongoDB, DynamoDB
+		* In Memory DB
+			- Redis, Memcashed
