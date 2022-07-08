@@ -1,5 +1,11 @@
 const app = require('../index');
 
-app.listen(3000, () => {
-    console.log('Server is running on 3000 port');
-});
+// db sync
+const syncDb = require('./sync-db');
+
+syncDb().then( () => {
+    console.log('Sync database!');
+    app.listen(3000, () => {
+        console.log('Server is running on 3000 port');
+    });
+})
