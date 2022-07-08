@@ -8,7 +8,9 @@ const index = function (req, res) { // 익스프레스 어플리케이션의 메
       return res.status(400)
     }
 
-    models.User.findAll({}) // 파라미터로 where 조건을 넘길 수도 있다.
+    models.User.findAll({
+      limit: limit // 파라미터로 where 조건을 넘길 수도 있다.
+    })
       .then(users => {
         res.json(users);
       })
